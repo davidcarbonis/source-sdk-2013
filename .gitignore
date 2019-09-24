@@ -54,3 +54,22 @@ config.cfg
 # shader files
 *.tmp
 
+*.lib
+*.sentinel
+*.filters
+*.vpc_crc
+*.pdb
+*.exe
+*.dll
+sp/src/utils/serverplugin_sample/Release/serverplugin_empty.vcxproj.FileListAbsolute.txt
+sp/src/utils/tgadiff/Release/tgadiff.vcxproj.FileListAbsolute.txt
+sp/src/utils/vbsp/Release/vbsp.vcxproj.FileListAbsolute.txt
+sp/src/utils/vice/Release/vice.vcxproj.FileListAbsolute.txt
+sp/src/utils/vrad/Release/vrad_dll.vcxproj.FileListAbsolute.txt
+sp/src/utils/vrad_launcher/Release/vrad_launcher.vcxproj.FileListAbsolute.txt
+sp/src/utils/vtf2tga/Release/vtf2tga.vcxproj.FileListAbsolute.txt
+sp/src/utils/vtfdiff/Release/vtfdiff.vcxproj.FileListAbsolute.txt
+sp/src/utils/vvis/Release/vvis_dll.vcxproj.FileListAbsolute.txt
+sp/src/utils/vvis_launcher/Release/vvis_launcher.vcxproj.FileListAbsolute.txt
+sp/src/vgui2/vgui_controls/Release/vgui_controls.vcxproj.FileListAbsolute.txt
+*.db
