@@ -73,3 +73,9 @@ sp/src/utils/vvis/Release/vvis_dll.vcxproj.FileListAbsolute.txt
 sp/src/utils/vvis_launcher/Release/vvis_launcher.vcxproj.FileListAbsolute.txt
 sp/src/vgui2/vgui_controls/Release/vgui_controls.vcxproj.FileListAbsolute.txt
 *.db
+sp/src/lib/public/vgui_controls.lib
+sp/src/lib/public/tier1.lib
+sp/src/lib/public/raytrace.lib
+sp/src/lib/public/mathlib.lib
+sp/src/lib/public/fgdlib.lib
+sp/src/.vs/everything/v16/Browse.VC.opendb
