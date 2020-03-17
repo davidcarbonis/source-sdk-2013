@@ -944,7 +944,8 @@ void CBasePlayer::TraceAttack( const CTakeDamageInfo &inputInfo, const Vector &v
 		default:
 			break;
 		}
-
+// Freeman's Mind edit - no player blood
+/*
 #ifdef HL2_EPISODIC
 		// If this damage type makes us bleed, then do so
 		bool bShouldBleed = !g_pGameRules->Damage_ShouldNotBleed( info.GetDamageType() );
@@ -954,6 +955,7 @@ void CBasePlayer::TraceAttack( const CTakeDamageInfo &inputInfo, const Vector &v
 			SpawnBlood(ptr->endpos, vecDir, BloodColor(), info.GetDamage());// a little surface blood.
 			TraceBleed( info.GetDamage(), vecDir, ptr, info.GetDamageType() );
 		}
+		*/
 
 		AddMultiDamage( info, this );
 	}
