@@ -324,6 +324,7 @@ inline bool CClient_Precipitation::SimulateRain( CPrecipitationParticle* pPartic
 		}
 	}
 
+	/* ADM - remove and replace with new code that simulates rain splashes on all surfaces
 		// No longer in the air? punt.
 		if ( !IsInAir( pParticle->m_Pos ) )
 		{
@@ -344,6 +345,25 @@ inline bool CClient_Precipitation::SimulateRain( CPrecipitationParticle* pPartic
 			// Tell the framework it's time to remove the particle from the list
 			return false;
 		}
+		*/ // ADM - end
+	/*Tony; the traceline replaces the IsInAir check.
+	you also don't want the random's to be around the traceline either, or it will only check SOMETIMES. it  needs to check _all_ the time.
+	you also probably want to do some radius checking of the particles position (ignoring z) for if it's in range of the local player to run this code or not
+	otherwise you will have traces for every particle all over the place even if there's no way that the player can see it
+	so when the player is out of that radius, you would only use if ( !IsInAir( pParticle->m_Pos ) { return  false; }
+	probably also need to check to make sure that it doesn't splash on sky, too.
+	*/
+	trace_t trace;
+	UTIL_TraceLine(vOldPos, pParticle->m_Pos, MASK_SOLID_BRUSHONLY, this, COLLISION_GROUP_NONE, &trace);
+
+	if (trace.fraction < 1 || trace.DidHit())
+	{
+		if (RandomInt(0, 100) <= r_RainSplashPercentage.GetInt())
+			DispatchParticleEffect("SPLASH_PARTICLE_NAME", trace.endpos, trace.m_pEnt->GetAbsAngles(), NULL);
+
+		// Tell the framework it's time to remove the particle from the list
+		return false;
+	}
 
 	// We still want this particle
 	return true;
