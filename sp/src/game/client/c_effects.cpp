@@ -359,7 +359,7 @@ inline bool CClient_Precipitation::SimulateRain( CPrecipitationParticle* pPartic
 	if (trace.fraction < 1 || trace.DidHit())
 	{
 		if (RandomInt(0, 100) <= r_RainSplashPercentage.GetInt())
-			DispatchParticleEffect("SPLASH_PARTICLE_NAME", trace.endpos, trace.m_pEnt->GetAbsAngles(), NULL);
+			DispatchParticleEffect("Rain_01_impact", trace.endpos, trace.m_pEnt->GetAbsAngles(), NULL);
 
 		// Tell the framework it's time to remove the particle from the list
 		return false;
