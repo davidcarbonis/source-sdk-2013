@@ -5894,7 +5894,16 @@ float C_BaseEntity::GetInterpolationAmount( int flags )
 	// demo was recorded locally.
 	const bool bPlayingDemo = engine->IsPlayingDemo();
 	const bool bPlayingMultiplayer = !bPlayingDemo && ( gpGlobals->maxClients > 1 );
-	const bool bPlayingNonLocallyRecordedDemo = bPlayingDemo && !engine->IsPlayingDemoALocallyRecordedDemo();
+
+	// BEGIN DEMO RECORDING FIX - CODE FROM VALVE
+
+	const bool bPlayingNonLocallyRecordedDemo = false;
+
+	//	Original line
+	//	const bool bPlayingNonLocallyRecordedDemo = bPlayingDemo && !engine->IsPlayingDemoALocallyRecordedDemo();
+
+	// END EDIT
+
 	if ( bPlayingMultiplayer || bPlayingNonLocallyRecordedDemo )
 	{
 		return AdjustInterpolationAmount( this, TICKS_TO_TIME( TIME_TO_TICKS( GetClientInterpAmount() ) + serverTickMultiple ) );
