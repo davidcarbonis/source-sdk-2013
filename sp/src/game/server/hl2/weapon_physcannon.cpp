@@ -1731,7 +1731,12 @@ void CWeaponPhysCannon::PrimaryFireEffect( void )
 		return;
 
 	pOwner->ViewPunch( QAngle(-6, random->RandomInt(-2,2) ,0) );
-	
+
+	Vector viewVec;
+	AngleVectors(pOwner->EyeAngles() + pOwner->GetPunchAngle(), &viewVec);
+	VectorScale(viewVec, -1000.0f, viewVec);
+	pOwner->ApplyLocalVelocityImpulse(viewVec);
+
 	color32 white = { 245, 245, 255, 32 };
 	UTIL_ScreenFade( pOwner, white, 0.1f, 0.0f, FFADE_IN );
 
