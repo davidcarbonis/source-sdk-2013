@@ -64,6 +64,7 @@ ConVar physcannon_punt_cone( "physcannon_punt_cone", "0.997" );
 ConVar player_throwforce( "player_throwforce", "1000" );
 ConVar physcannon_dmg_glass( "physcannon_dmg_glass", "15" );
 ConVar physcannon_right_turrets( "physcannon_right_turrets", "0" );
+ConVar physcannon_kickback( "physcannon_kickback", "1000.0");
 
 extern ConVar hl2_normspeed;
 extern ConVar hl2_walkspeed;
@@ -1734,7 +1735,7 @@ void CWeaponPhysCannon::PrimaryFireEffect( void )
 
 	Vector viewVec;
 	AngleVectors(pOwner->EyeAngles() + pOwner->GetPunchAngle(), &viewVec);
-	VectorScale(viewVec, -1000.0f, viewVec);
+	VectorScale(viewVec, float(-1.0f * physcannon_kickback.GetFloat()), viewVec);
 	pOwner->ApplyLocalVelocityImpulse(viewVec);
 
 	color32 white = { 245, 245, 255, 32 };
